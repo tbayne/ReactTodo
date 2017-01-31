@@ -1,6 +1,6 @@
 const React = require('react');
 
-const TodoList = React.createClass({
+const TodoSearch = React.createClass({
 
     handleSearch: function () {
         let showCompleted = this.refs.showCompleted.checked;
@@ -33,4 +33,4 @@ const TodoList = React.createClass({
     }
 });
 
-module.exports = TodoList;
+module.exports = TodoSearch;
