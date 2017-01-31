@@ -1,4 +1,7 @@
-React Boilerplate w/Karma for Testing and Foundation Components
+React Todo Sample Application
+
+Using yarn for package management
+  - Mostly drop in replacement for npm, with local caching.
 
 Create a new Heroku Application:
 >  heroku login 
