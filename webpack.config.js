@@ -18,10 +18,12 @@ module.exports = {
     resolve: {
 
         root: __dirname,
+        modulesDirectories: [
+            'node_modules', './app/components'
+        ],
         alias: {
             applicationStyles: "app/styles/app.scss",
-            jQuery: 'jquery',
-            Main: "app/components/Main.jsx"
+            jQuery: 'jquery'
         },
         extensions: ['', '.js', '.jsx']
     },
