@@ -19,6 +19,21 @@ module.exports = {
             ? todos
             : [];
 
+    },
+    filterByShowCompleted: function (todos, showCompleted) {
+        return todos.filter((todo) => {
+            return !todo.completed || showCompleted;
+        })
+    },
+
+    filterTodos: function (todos, showCompleted, searchText) {
+        var filteredTodos = todos;
+
+        // filter by showCompleted
+        filteredTodos = this.filterByShowCompleted(filteredTodos, showCompleted);
+
+        // filter by searchText sort todos, non-completed first
+        return filteredTodos;
     }
 
 }
