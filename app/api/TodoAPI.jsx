@@ -26,13 +26,42 @@ module.exports = {
         })
     },
 
+    filterBySearchText: function (todos, searchText) {
+        return todos.filter((todo) => {
+            if (searchText.length === 0) 
+                return true;
+            else if (todo.text.toLowerCase().indexOf(searchText) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+    },
+
+    sortTodosByCompletedStatus: function (todos) {
+        return todos.sort((a, b) => {
+            if (!a.completed && b.completed) {
+                return -1;
+            } else if (a.completed && !b.completed) {
+                return 1;
+            } else {
+                return 0
+            }
+        });
+    },
+
     filterTodos: function (todos, showCompleted, searchText) {
         var filteredTodos = todos;
 
         // filter by showCompleted
         filteredTodos = this.filterByShowCompleted(filteredTodos, showCompleted);
 
-        // filter by searchText sort todos, non-completed first
+        // filter by searchText
+        filteredTodos = this.filterBySearchText(filteredTodos, searchText);
+
+        // searchText); sort todos, non-completed first
+        filteredTodos = this.sortTodosByCompletedStatus(filteredTodos);
+
         return filteredTodos;
     }
 
